@@ -9,7 +9,7 @@
     "dev": "node app.js --dev"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": "16.x"
   },
   "dependencies": {
     "director": "1.2.8",

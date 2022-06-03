@@ -18,12 +18,13 @@ const router = new director.http.Router({
 //Server changes 6/3/22 - remove block to revert
 const server = http.createServer((req, res) => {
     req.chunks = [];
+    console.log("Incoming data");
     req.on('data', chunk => {
       req.chunks.push(chunk.toString());
+      console.log(chunk.toString());
     });
 
-    console.log("Incoming data");
-    console.log(req.chunks.toString());
+    //console.log(req.chunks.toString());
 
     router.dispatch(req, res, err => {
       res.writeHead(err.status, {"Content-Type": "text/plain"});

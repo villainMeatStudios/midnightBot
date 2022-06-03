@@ -10,7 +10,7 @@ const Bot  = require('./lib/bot');
 // Create a router for GET and POST requests to the app
 const router = new director.http.Router({
     '/': {
-        post: Bot.respond, //Server.postResponse,
+        post: postResponse, //Server.postResponse,
         get: ping //Server.getResponse
     }
 });
@@ -20,10 +20,10 @@ const server = http.createServer((req, res) => {
     req.chunks = [];
     console.log("Incoming data");
     req.on('data', chunk => {
-      req.chunks.push(chunk.toString());
+      req.chunks.push(chunk); //.toString()
       console.log(chunk.toString());
-      const requestMessage = JSON.parse(chunk);
-      Bot.respond(requestMessage);
+      //const requestMessage = JSON.parse(chunk);
+      //Bot.respond(requestMessage);
     });
 
     router.dispatch(req, res, err => {
@@ -48,4 +48,9 @@ server.listen(port);
 function ping() {
     this.res.writeHead(200);
     this.res.end("Bot running.");
+}
+
+function postResponse(){
+    const requestMessage = JSON.parse(this.req.chunks[0]);
+    Bot.respond(requestMessage);
 }

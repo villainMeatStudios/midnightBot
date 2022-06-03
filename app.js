@@ -26,10 +26,10 @@ const server = http.createServer((req, res) => {
       Bot.respond(requestMessage);
     });
 
-    router.dispatch(req, res, err => {
-      res.writeHead(err.status, {"Content-Type": "text/plain"});
-      res.end(err.message);
-    });
+    // router.dispatch(req, res, err => {
+    //   res.writeHead(err.status, {"Content-Type": "text/plain"});
+    //   res.end(err.message);
+    // });
   });
 
 // Server changes 6/3/22 - remove to revert  

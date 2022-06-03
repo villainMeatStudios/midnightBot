@@ -22,7 +22,8 @@ const server = http.createServer((req, res) => {
     req.on('data', chunk => {
       req.chunks.push(chunk.toString());
       console.log(chunk.toString());
-      Bot.respond();
+      const requestMessage = JSON.parse(chunk);
+      Bot.respond(requestMessage);
     });
 
     router.dispatch(req, res, err => {

@@ -8,12 +8,12 @@ const http = require('http');
 const Bot  = require('./lib/bot');
 
 // Create a router for GET and POST requests to the app
-const router = new director.http.Router({
-    '/': {
-        post: Bot.respond, //Server.postResponse,
-        get: ping //Server.getResponse
-    }
-});
+// const router = new director.http.Router({
+//     '/': {
+//         post: Bot.respond, //Server.postResponse,
+//         get: ping //Server.getResponse
+//     }
+// });
 
 //Server changes 6/3/22 - remove block to revert
 const server = http.createServer((req, res) => {

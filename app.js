@@ -5,7 +5,7 @@ const director = require('director');
 // Server changes 6/3/22 - uncomment and remove block to revert
 //const Server   = require('./lib/server');
 const http = require('http');
-const Bot  = require('./bot');
+const Bot  = require('./lib/bot');
 
 // Create a router for GET and POST requests to the app
 const router = new director.http.Router({

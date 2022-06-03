@@ -22,9 +22,8 @@ const server = http.createServer((req, res) => {
     req.on('data', chunk => {
       req.chunks.push(chunk.toString());
       console.log(chunk.toString());
+      Bot.respond();
     });
-
-    //console.log(req.chunks.toString());
 
     router.dispatch(req, res, err => {
       res.writeHead(err.status, {"Content-Type": "text/plain"});

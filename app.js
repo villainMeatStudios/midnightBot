@@ -22,6 +22,7 @@ const server = http.createServer((req, res) => {
       req.chunks.push(chunk.toString());
     });
 
+    console.log("Incoming data");
     console.log(req.chunks.toString());
 
     router.dispatch(req, res, err => {
